@@ -1,3 +1,6 @@
+## - Limit possible target zones by domain suffixes.
+domainFilters: []
+
 config:
   auth:
     json: |

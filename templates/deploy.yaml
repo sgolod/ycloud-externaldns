@@ -21,7 +21,7 @@ spec:
       containers:
         - name: external-dns
           image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}          
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
             - --txt-owner-id=external-dns
             - --source=service
@@ -30,6 +30,9 @@ spec:
             - --yandex-folder={{ .Values.config.folder_id }}
             - --yandex-iam-key-file=/etc/kubernetes/iamkeyfile.json
             - --txt-prefix=external-dns-
+            {{- range .Values.domainFilters }}
+            - --domain-filter={{ . }}
+            {{- end }}
           volumeMounts:
             - name: yandex-iam-key-file
               mountPath: /etc/kubernetes
