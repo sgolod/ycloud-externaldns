@@ -9,8 +9,8 @@ config:
 
 image:
   pullPolicy: IfNotPresent
-  repository: cr.yandex/yc-marketplace/yandex-cloud/externaldns/externaldns
-  tag: 0.5.0
+  repository: cr.yandex/yc-marketplace/yandex-cloud/externaldns/externaldns1718719319031631828758369101109170292970533212046
+  tag: 0.5.1
 
 nodeSelector: {}
 
